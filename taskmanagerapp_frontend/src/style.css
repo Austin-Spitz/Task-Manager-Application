@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'karla', sans-serif;
+}
+
+
+.no-notes {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-task {
+  border-radius: 10px;
+  padding: 10px 10px;
+  color: #FBF9F1;
+  background-color: #AAD7D9;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.nav--container {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 23px;
+}
+
+.nav--name {
+  padding-left: 10px;
+  margin-right: auto;
+  font-size: 1.2rem;
+}
+
+.nav--date {
+  padding-right: 15px;
+  font-size: 1.2rem;
+}
+
+
+.div--card {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-left: 2.5em;
+}
+
+
+.div--card>h2 {
+  font-size: 1.4em;
+  text-align: center;
+}
+
+
+.card {
+  margin-top: 15px;
+}
+
+.addTaskButton--style {
+  margin-top: 1em;
+  margin-left: 4.5em;
+  padding: 0px 70px 0px 70px;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #AAD7D9;
+}
+
+
+.form--style {
+  padding: 20px;
+}
+
+.label--style {
+  margin-top: 20px;
+}
+
+.button--style {
+  margin-top: 30px;
+  color: black;
+  background-color: #AAD7D9;
+  border-radius: 5px;
+  width: 100%;
+}
