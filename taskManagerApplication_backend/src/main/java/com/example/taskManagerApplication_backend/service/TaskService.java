@@ -20,13 +20,12 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTasks(Task task){
         return taskRepository.findAll(); // finding all tasks
     }
 
-    public Task deleteTask(Task task){
-        taskRepository.delete(task);// deleting task
-        return task;
+    public void deleteById(int id){
+        taskRepository.deleteById(id);
     }
 
 

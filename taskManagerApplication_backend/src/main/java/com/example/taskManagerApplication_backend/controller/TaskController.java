@@ -33,14 +33,12 @@ public class TaskController {
     }
 
 
-//    // getting all tasks
-//    @GetMapping("/allTasks")
-//    public List<Task> getAllTasks(@RequestMapping Task task){
-//
-//        Task t = TaskService.save(task);
-//        t.add(linkTo(methodOn(TaskController.class).getData()).withRel("taskManager")); // HATEOUS... 'taskManager' is name of the link
-//        return TaskService.getAllTasks();
-//    }
+    // getting all tasks
+    @GetMapping("/allTasks")
+    public List<Task> getAllTasks(Task task){
+
+        return taskService.getAllTasks(task);
+    }
 
 
     @PostMapping("/add") // adding item to list
@@ -54,13 +52,9 @@ public class TaskController {
     }
 
     // delete task
-    @PostMapping("/delete") // delete task
-    public ResponseEntity<Task> deleteTask(Task task){
-
-        Task it = taskService.deleteTask(task);
-
-        return new ResponseEntity<>(it, HttpStatus.OK);
-
+    @DeleteMapping("/delete/{id}") // delete task
+    public void deleteTaskById(@PathVariable("id") int id){
+        taskService.deleteById(id);
     }
 
 

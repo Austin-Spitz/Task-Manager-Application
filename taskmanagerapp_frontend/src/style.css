@@ -51,8 +51,8 @@ body {
   flex-direction: column;
   padding-top: 50px;
   padding-left: 2.5em;
-}
 
+}
 
 .div--card>h2 {
   font-size: 1.4em;
@@ -88,4 +88,14 @@ body {
   background-color: #AAD7D9;
   border-radius: 5px;
   width: 100%;
+}
+
+.card-title>i {
+  margin-left: 65%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.card-title>i:hover {
+  color: red;
 }
