@@ -31,6 +31,7 @@ export default function HomePage(){
     // will hold the task length that will be displayed with the card
     let index = tasks.length
 
+    let databaseIdCounter = index
 
     // useState to hold the task object information
     const [task, setTask] = React.useState({
@@ -55,7 +56,6 @@ export default function HomePage(){
     // useEffect that will POST a new task
     useEffect(() => {
       if(sendRequest){
-        console.log("task before POST request: ", task);
             fetch(`http://localhost:8080/taskManager/add`, {
                 method: "POST",
                 headers: {
@@ -114,8 +114,6 @@ export default function HomePage(){
     function handleChange(event){
         const {name, value} = event.target // taking in the name and value
 
-        console.log("Handling change: ", name, value);
-
         setTask(prevTask => ({ // setting the meme
             ...prevTask, // using prevTask data, but changing the name to the value
             [name]: value
@@ -124,35 +122,32 @@ export default function HomePage(){
 
     // function that will handle logic in regards to dynamically creating cards
     const handleAddTask = () => {
-      console.log("Task before update:", task);
   setTasks((prevTasks) => {
     const updatedTasks = [...prevTasks, task];
-    console.log("Updated tasks:", updatedTasks);
     return updatedTasks;
   });
     };
 
-    useEffect(() => {
-      console.log("Tasks have been updated (useEffect): ", tasks);
-    },[tasks])
-
-
-
-    console.log("Console log before return statement:")
-    console.log(task)
     return (
         <div>
             <NavHeader/>
-            
+
+            <div className="homePageIntro-style">
+              <h1>Hello,</h1>
+              <p>Your tasks await you below:</p>
+            </div>
+
+
+            <div className="cardButton--style">
             {/*Dynamically creating cards that hold the task information*/} 
-            {tasks.map((task, index) => (
-              <CardC key={task.id} task={task} index={index}/>
+            {tasks.map((task, index, tasks) => (
+              <CardC key={task.id} task={task} index={index} tasks={tasks}/>
             ))}
             
 
            
 
-            <div>
+            
             <button className="addTaskButton--style" onClick={handleFormShow}>+ Add Task</button>
             </div>
 
@@ -164,9 +159,9 @@ export default function HomePage(){
         <Offcanvas.Body>
           <div className="form--style">
             <form>
-                <label type="text" className="label--style">Task</label> <br/>
+                <label type="text" className="label--style">Task</label> <br/> <br/>
                 <input type="text" autoComplete="off" placeholder="Your task.." value={task.taskDescription} name="taskDescription" onChange={handleChange}/> <br/>
-                <label type="text" className="label--style">Deadline (yyyy/mm/dd)</label> <br/>
+                <label type="text" className="label--style">Deadline (yyyy/mm/dd)</label> <br/> <br/>
                 <input type="text" autoComplete="off" placeholder="Task Deadline.." value={task.deadline} name="deadline" onChange={handleChange}/>
 
                 {/*When button is clicked.. task created and sent to database*/}
