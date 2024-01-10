@@ -18,6 +18,7 @@ public class Task extends RepresentationModel<Customer> {
 
     private Integer id; // key
     private String taskDescription;
+    private String priority;
     private String date; // date the task was created
     private String deadline; // deadline for the task
 

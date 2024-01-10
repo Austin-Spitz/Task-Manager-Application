@@ -118,3 +118,11 @@ nav {
 .card-title>i:hover {
   color: red;
 }
+
+.textField--style {
+  font-family: 'karla', sans-serif;
+}
+
+.formTitle--style {
+  padding-left: 20px;
+}

@@ -4,6 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import CardC from "./cardC";
 import "../style.css";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 export default function HomePage(){
     
@@ -37,6 +43,7 @@ export default function HomePage(){
     const [task, setTask] = React.useState({
         id: index,
         date: ddmmyy,
+        priority: "",
         deadline: "",
         taskDescription: ""
     })
@@ -114,7 +121,7 @@ export default function HomePage(){
     function handleChange(event){
         const {name, value} = event.target // taking in the name and value
 
-        setTask(prevTask => ({ // setting the meme
+        setTask(prevTask => ({ // setting the task
             ...prevTask, // using prevTask data, but changing the name to the value
             [name]: value
         }))
@@ -154,16 +161,31 @@ export default function HomePage(){
             {/*Form logic*/}
             <Offcanvas show={show} onHide={handleFormClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Task #{index+1}</Offcanvas.Title>
+          <Offcanvas.Title className="formTitle--style">Task #{index+1}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="form--style">
             <form>
-                <label type="text" className="label--style">Task</label> <br/> <br/>
-                <input type="text" autoComplete="off" placeholder="Your task.." value={task.taskDescription} name="taskDescription" onChange={handleChange}/> <br/>
-                <label type="text" className="label--style">Deadline (yyyy/mm/dd)</label> <br/> <br/>
-                <input type="text" autoComplete="off" placeholder="Task Deadline.." value={task.deadline} name="deadline" onChange={handleChange}/>
-
+                <br/>
+                <TextField className="textField--style" placeholder="Enter your Task..." id="outlined-multiline-static" autoComplete="off" value={task.taskDescription} name="taskDescription" onChange={handleChange} multiline rows={4} ></TextField> <br/>
+                <br/>
+                <TextField className="textField--style" placeholder="Enter your Deadline..." type="text" autoComplete="off" value={task.deadline} name = "deadline" onChange={handleChange}></TextField>
+                <br/> <br/>
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label">Priority</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={task.priority}
+          className="textField--style"
+          name="priority"
+          onChange={handleChange}
+        >
+          <MenuItem value="High">High</MenuItem>
+          <MenuItem value="Medium">Medium</MenuItem>
+          <MenuItem value="Low">Low</MenuItem>
+        </Select>
+      </FormControl>
                 {/*When button is clicked.. task created and sent to database*/}
                 <button onClick={() => {handleFormClose(); handleSendRequest(); handleAddTask();}} className="button--style">Submit</button>
             </form>

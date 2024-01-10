@@ -44,12 +44,27 @@ export default function CardC({task, index, tasks}){
       }, [sendRequest]);
 
 
+      function getPriority(priority){
+        switch(priority){
+          case 'High':
+            return 'red';
+          case 'Medium':
+            return 'yellow';
+          case 'Low':
+            return 'green';
+          default:
+            return 'gray';
+        }
+      }
+
+
     return (
         <div className="div--card">
             <Card style={{ width: '18rem' }} className="card--container">
       <Card.Body>
-        <Card.Title className="card-title">Task #{task.id} <i class="bi bi-trash-fill" onClick={handleDeleteTask}></i></Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Deadline: {task.deadline}</Card.Subtitle>
+      <i class="bi bi-circle-fill" style={{'color': getPriority(task.priority)}}></i>
+        <Card.Title className="card-title">Task #{index+1} <i class="bi bi-trash-fill" onClick={handleDeleteTask}></i></Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">Due: {task.deadline}</Card.Subtitle>
         <Card.Text>
           {task.taskDescription}
         </Card.Text>
