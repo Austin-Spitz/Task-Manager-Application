@@ -43,10 +43,10 @@ export default function HomePage(){
     const [task, setTask] = React.useState({
         id: index,
         date: ddmmyy,
-        priority: "",
+        priority: "High",
         deadline: "",
         taskDescription: ""
-    })
+      })
 
     // handles change made to the input fields
     function handleTaskChange(event){
@@ -63,7 +63,7 @@ export default function HomePage(){
     // useEffect that will POST a new task
     useEffect(() => {
       if(sendRequest){
-            fetch(`http://localhost:8080/taskManager/add`, {
+            fetch(`http://localhost:8080/taskManager/addTasks`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

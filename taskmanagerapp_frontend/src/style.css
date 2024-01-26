@@ -109,6 +109,54 @@ nav {
   width: 100%;
 }
 
+.login-button--style {
+  color: #FBF9F1;
+  background-color: #4A4E74;
+  border-radius: 5px;
+  width: 50%;
+  height: 10%;
+  font-weight: bold;
+  border-color: transparent;
+}
+
+.login-button--style:hover {
+  background-color: #4d5385;
+}
+
+.newAccount-button--style {
+  background-color: #339023;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 30%;
+  height: 10%;
+  font-weight: bold;
+  font-family: 'karla', sans-serif;
+  border-color: transparent;
+}
+
+.newAccount-button--style:hover {
+  background-color: #3cbc26;
+}
+
+.signUp-button--style {
+  background-color: #339023;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 30%;
+  height: 40px;
+  font-weight: bold;
+  font-family: 'karla', sans-serif;
+  border-color: transparent;
+}
+
+.signUp-button--style:hover {
+  background-color: #3cbc26;
+}
+
+.login-text-style {
+  width: 50%;
+}
+
 .card-title>i {
   margin-left: 60%;
   font-size: 15px;
@@ -125,4 +173,67 @@ nav {
 
 .formTitle--style {
   padding-left: 20px;
+}
+
+.login--container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'karla', sans-serif;
+
+}
+
+.tst {
+  width: 50%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signIn--h2 {
+  margin-bottom: 30%;
+  color: #4A4E74;
+  font-weight: bold;
+}
+
+.signUp--h2 {
+  margin-bottom: 110px;
+  margin-right: 70%;
+  color: #4A4E74;
+  font-weight: bold;
+}
+
+.signUp-text-style {
+  width: 50%;
+}
+
+.textField-style2 {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+
+.dd {
+  margin-right: 10px !important;
+}
+
+.emailPasswordStyle {
+  width: 90%;
+}
+
+.signOutIcon {
+  margin-bottom: 7px;
+  margin-left: 10px;
+}
+
+.signOutIcon:hover {
+  color: rgb(71, 67, 67);
+  cursor: pointer;
 }

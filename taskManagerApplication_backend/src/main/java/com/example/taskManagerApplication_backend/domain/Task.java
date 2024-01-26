@@ -1,9 +1,6 @@
 package com.example.taskManagerApplication_backend.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -21,5 +18,9 @@ public class Task extends RepresentationModel<Customer> {
     private String priority;
     private String date; // date the task was created
     private String deadline; // deadline for the task
+
+    @ManyToOne // A single customer can have many tasks
+    @JoinColumn(name="customer_id") // foreign key column
+    private Customer customer;
 
 }

@@ -53,7 +53,7 @@ export default function CardC({task, index, tasks}){
           case 'Low':
             return 'green';
           default:
-            return 'gray';
+            return 'red';
         }
       }
 

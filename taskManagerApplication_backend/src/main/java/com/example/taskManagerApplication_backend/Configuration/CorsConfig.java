@@ -1,4 +1,4 @@
-package com.example.taskManagerApplication_backend;
+package com.example.taskManagerApplication_backend.Configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -41,8 +41,8 @@ public class TaskController {
     }
 
 
-    @PostMapping("/add") // adding item to list
-    public ResponseEntity<Task> addTask(@RequestBody Task task){
+    @PostMapping("/addTasks") // adding item to list
+    public ResponseEntity<Task> addTasks(@RequestBody Task task){
 
         Task it =  taskService.save(task);
         it.add(linkTo(methodOn(TaskController.class).getData()).withRel("taskManager")); // HATEOUS... 'taskManager' is name of the link
