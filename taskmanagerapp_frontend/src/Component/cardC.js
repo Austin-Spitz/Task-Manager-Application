@@ -35,7 +35,7 @@ export default function CardC({task, index, tasks}){
                     window.location.reload();
                   }
                   else{
-                    navigate('/')
+                    navigate('/noTask')
                   }
               })
               

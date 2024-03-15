@@ -11,8 +11,8 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="login" element={<Login/>}/>
-      <Route path="/" element={<NoTask/>}/>
+      <Route path="/" element={<Login/>}/>
+      <Route path="noTask" element={<NoTask/>}/>
       <Route path="createAccount" element={<CreateAccount/>}/>
       <Route path="home" element={<HomePage/>}/>
       <Route path="card" element={<CardC/>}/>

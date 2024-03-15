@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Http } from "@mui/icons-material";
+import { red } from "@mui/material/colors";
 
 export default function Login(){
 
@@ -20,6 +21,8 @@ export default function Login(){
     }
 
     const navigate = useNavigate();
+
+    const [visibility, setVisibility] = React.useState("hidden"); // login feedback NOT visible by default
 
     const [sendRequest, setSendRequest] = React.useState(false);
 
@@ -39,8 +42,9 @@ export default function Login(){
               // Check the status inside this block
               console.log("response status: ", actualData.message)
               if (actualData.message === "Login Success") {
-                navigate('/');
+                navigate('noTask');
               } else {
+                handleVisibility();
                 // Handle other cases if needed
               }
             })
@@ -60,6 +64,11 @@ export default function Login(){
       setSendRequest(prevRequest => !prevRequest)
     }
 
+    // when the login is unsuccessful (wrong email or password input) then the visibility should change
+    function handleVisibility(){
+      setVisibility(prevVisibility => !prevVisibility);
+    }
+
     function navigateCreateAccount(){
         return (
             navigate('../createAccount')
@@ -74,15 +83,11 @@ export default function Login(){
             [name]: value
         }))
     }
-
-    function handleLogin(){
-        
-    }
-
     return (
         <div className="login--container">
             <div className="tst">
             <h2 className="signIn--h2">Sign In</h2>
+            <p style={{'visibility': visibility, 'color': 'red'}}>Login Failed. Try again</p>
             <TextField className="login-text-style" placeholder="Username" id="outlined-multiline-static" value={account.username} name = "username" onChange={handleChange} autoComplete="off"></TextField> <br/>
             <TextField className="login-text-style" placeholder="Password" id="outlined-password-input" type="password" value={account.password} name="password" onChange={handleChange} autoComplete="off"></TextField> <br/>
             <button className="login-button--style" onClick={() => {handleEmptyFields(); handleSendRequest();}}>Login</button> <br/>

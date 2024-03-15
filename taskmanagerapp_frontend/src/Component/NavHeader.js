@@ -15,7 +15,7 @@ export default function NavHeader(){
     const navigate = useNavigate();
 
     function handleSignOut(){
-        navigate("../login")
+        navigate("../")
     }
 
 

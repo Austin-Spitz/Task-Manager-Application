@@ -8,7 +8,7 @@ export default function NoTask(){
     const navigate = useNavigate()
     function createNewTask(){
         return (
-            navigate('home')
+            navigate('../home')
         )
     }
 

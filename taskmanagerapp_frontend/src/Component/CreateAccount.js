@@ -56,7 +56,7 @@ export default function CreateAccount(){
               })
               .finally(() => {
                 setSendRequest(false)
-                  navigate('../login')
+                  navigate('/')
               })
               
             }
